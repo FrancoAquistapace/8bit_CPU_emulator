@@ -39,8 +39,17 @@ class Light(object):
         # Update canvas object
         canvas.itemconfig(self.obj, fill=color)
 
+
 # Define clock light
 clock_on_c = '#eff5f9'
 clock_off_c = '#b0cfe4'
 clock_light_meta = Light(x=355, y=70, r=LIGHT_R, 
                         off_c=clock_off_c, on_c=clock_on_c)
+
+# Define memory address lights
+mem_address_on_c = '#f8f0bd'
+mem_address_off_c = '#eeda5b'
+mem_address_x_arr = [595 + i*30 for i in range(4)]
+mem_address_meta = [Light(x=x, y=85, r=LIGHT_R,
+                          off_c=mem_address_off_c, 
+                          on_c=mem_address_on_c) for x in mem_address_x_arr]
