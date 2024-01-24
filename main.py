@@ -33,6 +33,10 @@ def main():
     for l in mem_address_meta:
         l.build(canvas_bg)
 
+    # Draw control word lights
+    for l in cont_wrd_meta:
+        l.build(canvas_bg)
+
     # Create a button and add it on top of the background image
     button = tk.Button(root, text="Click Me", 
                        command=lambda: clock_light_meta.toggle(canvas_bg))
