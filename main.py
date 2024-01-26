@@ -37,6 +37,10 @@ def main():
     for l in cont_wrd_meta:
         l.build(canvas_bg)
 
+    # Draw bus lights
+    for l in bus_meta:
+        l.build(canvas_bg)
+
     # Create a button and add it on top of the background image
     button = tk.Button(root, text="Click Me", 
                        command=lambda: clock_light_meta.toggle(canvas_bg))

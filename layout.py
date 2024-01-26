@@ -62,3 +62,12 @@ cont_wrd_x_arr = [56 + i*37.33 for i in range(16)]
 cont_wrd_meta = [Light(x=x, y=550, r=LIGHT_R,
                           off_c=cont_wrd_off_c, 
                           on_c=cont_wrd_on_c) for x in cont_wrd_x_arr]
+
+
+# Define bus lights
+bus_on_c = '#da9999'
+bus_off_c = '#a30000'
+bus_x_arr = [800 + i*30 for i in range(8)]
+bus_meta = [Light(x=x, y=35, r=LIGHT_R, 
+                    off_c=bus_off_c, 
+                    on_c=bus_on_c) for x in bus_x_arr]
