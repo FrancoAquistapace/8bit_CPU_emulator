@@ -138,3 +138,35 @@ inst_reg_x_arr = [450 + i*30 for i in range(8)]
 inst_reg_meta = [Light(x=inst_reg_x_arr[i], y=400, r=LIGHT_R, 
                     off_c=inst_reg_off_c[i], 
                     on_c=inst_reg_on_c[i]) for i in range(8)]
+
+
+# Add run and prog lights
+run_on_c = GREEN_ON
+run_off_c = GREEN_OFF
+run_meta = Light(x=125, y=220, r=LIGHT_R,
+                    off_c=run_off_c,
+                    on_c=run_on_c)
+
+prog_on_c = RED_ON
+prog_off_c = RED_OFF
+prog_meta = Light(x=180, y=220, r=LIGHT_R,
+                    off_c=prog_off_c,
+                    on_c=prog_on_c)
+
+
+# Add T and extra lights
+T_on_c = GREEN_ON
+T_off_c = GREEN_OFF
+T_x_arr = [160 + i*37 for i in range(5)]
+T_meta = [Light(x=x, y=435, r=LIGHT_R, 
+                off_c=T_off_c, 
+                on_c=T_on_c) for x in T_x_arr]
+
+
+# Add extra lights
+extra_on_c = RED_ON
+extra_off_c = RED_OFF
+extra_x_arr = [40 + i*30 for i in range(3)]
+extra_meta = [Light(x=x, y=435, r=LIGHT_R, 
+                off_c=extra_off_c, 
+                on_c=extra_on_c) for x in extra_x_arr]

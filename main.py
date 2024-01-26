@@ -69,10 +69,22 @@ def main():
     for l in inst_reg_meta:
         l.build(canvas_bg)
 
+    # Draw run and prog lights
+    run_meta.build(canvas_bg)
+    prog_meta.build(canvas_bg)
+
+    # Draw T lights
+    for l in T_meta:
+        l.build(canvas_bg)
+
+    # Draw extra lights
+    for l in extra_meta:
+        l.build(canvas_bg)
+
     # Create a button and add it on top of the background image
     button = tk.Button(root, text="Click Me", 
                        command=lambda: clock_light_meta.toggle(canvas_bg))
-    button_window = canvas_bg.create_window(400, 300, anchor="center", window=button)
+    button_window = canvas_bg.create_window(300, 220, anchor="center", window=button)
 
     root.mainloop()
 
