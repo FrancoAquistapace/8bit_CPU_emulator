@@ -41,6 +41,14 @@ def main():
     for l in bus_meta:
         l.build(canvas_bg)
 
+    # Draw RAM lights
+    for l in ram_meta:
+        l.build(canvas_bg)
+
+    # Draw ALU lights
+    for l in alu_meta:
+        l.build(canvas_bg)
+
     # Create a button and add it on top of the background image
     button = tk.Button(root, text="Click Me", 
                        command=lambda: clock_light_meta.toggle(canvas_bg))
