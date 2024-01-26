@@ -12,6 +12,8 @@ CYAN_ON = '#eff5f9'
 CYAN_OFF = '#b0cfe4'
 RED_ON = '#efa9ad'
 RED_OFF = '#d82932'
+GREEN_ON = '#99e9d5'
+GREEN_OFF = '#00c897'
 
 # Define light class
 class Light(object):
@@ -95,3 +97,33 @@ alu_x_arr = [840 + i*30 for i in range(8)]
 alu_meta = [Light(x=x, y=350, r=LIGHT_R, 
                     off_c=alu_off_c, 
                     on_c=alu_on_c) for x in alu_x_arr]
+
+
+# Define A and B register lights
+reg_on_c = RED_ON
+reg_off_c = RED_OFF
+reg_x_arr = [885 + i*30 for i in range(8)]
+areg_meta = [Light(x=x, y=218, r=LIGHT_R, 
+                    off_c=reg_off_c, 
+                    on_c=reg_on_c) for x in reg_x_arr]
+breg_meta = [Light(x=x, y=480, r=LIGHT_R, 
+                    off_c=reg_off_c, 
+                    on_c=reg_on_c) for x in reg_x_arr]
+
+
+# Define program counter lights
+prog_cnt_on_c = GREEN_ON
+prog_cnt_off_c = GREEN_OFF
+prog_cnt_x_arr = [1095 + i*30 for i in range(4)]
+prog_cnt_meta = [Light(x=x, y=115, r=LIGHT_R, 
+                    off_c=prog_cnt_off_c, 
+                    on_c=prog_cnt_on_c) for x in prog_cnt_x_arr]
+
+
+# Define flags lights
+flags_on_c = GREEN_ON
+flags_off_c = GREEN_OFF
+flags_y_arr = [335 + i*30 for i in range(2)]
+flags_meta = [Light(x=1180, y=y, r=LIGHT_R, 
+                    off_c=flags_off_c, 
+                    on_c=flags_on_c) for y in flags_y_arr]

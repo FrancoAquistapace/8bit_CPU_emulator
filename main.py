@@ -49,6 +49,22 @@ def main():
     for l in alu_meta:
         l.build(canvas_bg)
 
+    # Draw A register lights
+    for l in areg_meta:
+        l.build(canvas_bg)
+
+    # Draw B register lights
+    for l in breg_meta:
+        l.build(canvas_bg)
+
+    # Draw program counter lights
+    for l in prog_cnt_meta:
+        l.build(canvas_bg)
+
+    # Draw flags lights
+    for l in flags_meta:
+        l.build(canvas_bg)
+
     # Create a button and add it on top of the background image
     button = tk.Button(root, text="Click Me", 
                        command=lambda: clock_light_meta.toggle(canvas_bg))
