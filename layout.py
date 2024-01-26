@@ -49,8 +49,8 @@ class Light(object):
 
 
 # Define clock light
-clock_on_c = YELLOW_ON
-clock_off_c = YELLOW_OFF
+clock_on_c = CYAN_ON
+clock_off_c = CYAN_OFF
 clock_light_meta = Light(x=355, y=70, r=LIGHT_R, 
                         off_c=clock_off_c, on_c=clock_on_c)
 
@@ -127,3 +127,14 @@ flags_y_arr = [335 + i*30 for i in range(2)]
 flags_meta = [Light(x=1180, y=y, r=LIGHT_R, 
                     off_c=flags_off_c, 
                     on_c=flags_on_c) for y in flags_y_arr]
+
+
+# Define instruction register lights
+inst_reg_on_c = [CYAN_ON for i in range(4)]
+inst_reg_on_c.extend([YELLOW_ON for i in range(4)])
+inst_reg_off_c = [CYAN_OFF for i in range(4)]
+inst_reg_off_c.extend([YELLOW_OFF for i in range(4)])
+inst_reg_x_arr = [450 + i*30 for i in range(8)]
+inst_reg_meta = [Light(x=inst_reg_x_arr[i], y=400, r=LIGHT_R, 
+                    off_c=inst_reg_off_c[i], 
+                    on_c=inst_reg_on_c[i]) for i in range(8)]
