@@ -37,6 +37,10 @@ class Light(object):
                                 self.y + self.r, 
                                 fill=color)
 
+    def update(self, canvas, color):
+        # Update canvas object
+        canvas.itemconfig(self.obj, fill=color)
+
     def toggle(self, canvas):
         if self.state == 0:
             self.state += 1
@@ -44,8 +48,54 @@ class Light(object):
         else:
             self.state -= 1
             color = self.off_c
+        self.update(canvas, color)
+
+    def turn_on(self):
+        self.state = 1
+
+    def turn_off(self):
+        self.state = 0
+        
+    def set_state(self, new_state):
+        self.state = new_state
+
+
+class NumberLight(object):
+    def __init__(self, x, y, on_c):
+        self.x = x
+        self.y = y
+        self.state = 'o'
+        self.off_c = 'black'
+        self.on_c = on_c
+        self.obj = None
+
+    def build(self, canvas):
+        if self.state == 'o':
+            color = self.off_c
+        else:
+            color = self.on_c
+
+        # Delete previous text
+        if self.obj != None:
+            canvas.delete(self.obj)
+        
+        self.obj = canvas.create_text(
+                        self.x, self.y,
+                        text=self.state, 
+                        fill=color,
+                        font=('Helvetica 90 bold'))
+
+    def set_state(self, new_state):
+        self.state = new_state
+
+    def update(self, canvas):
+        # Update color
+        if self.state == 'o':
+            color = self.off_c
+        else:
+            color = self.on_c
         # Update canvas object
-        canvas.itemconfig(self.obj, fill=color)
+        canvas.itemconfig(self.obj, fill=color, text=self.state)
 
 
 # Define clock light
@@ -170,3 +220,26 @@ extra_x_arr = [40 + i*30 for i in range(3)]
 extra_meta = [Light(x=x, y=435, r=LIGHT_R, 
                 off_c=extra_off_c, 
                 on_c=extra_on_c) for x in extra_x_arr]
+
+
+# Get all lights into an overall array
+all_lights = [clock_light_meta]
+all_lights.extend(mem_address_meta)
+all_lights.extend(cont_wrd_meta)
+all_lights.extend(bus_meta)
+all_lights.extend(ram_meta)
+all_lights.extend(alu_meta)
+all_lights.extend(areg_meta)
+all_lights.extend(breg_meta)
+all_lights.extend(prog_cnt_meta)
+all_lights.extend(flags_meta)
+all_lights.extend(inst_reg_meta)
+all_lights.append(run_meta)
+all_lights.append(prog_meta)
+all_lights.extend(T_meta)
+all_lights.extend(extra_meta)
+
+
+# Define output register number lights
+output_reg_meta = [NumberLight(1120 - i*100, 620, RED_OFF) for i in range(3)]
+all_lights.extend(output_reg_meta)
