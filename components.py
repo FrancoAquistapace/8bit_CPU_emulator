@@ -264,7 +264,6 @@ class OutputRegister(Component):
         # Turn binary state into integer str
         int_state = str(to_int(self.internal_state))
         str_state = int_state.zfill(3)
-        print(int_state, str_state)
         for i in range(3):
             s = str_state[i]
             self.out_lights[2-i].set_state(s)
